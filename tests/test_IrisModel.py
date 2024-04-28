@@ -34,9 +34,9 @@ class TestIrisModel(TestCase):
         self.assertIsInstance(prediction, int)
 
     def test_save_and_load_model(self):
-        self.iris_model.save_model('tests/test_iris_model.pkl')
+        self.iris_model.save_model('tests/models/test_iris_model.pkl')
         self.iris_model.model = None  # Reset model to ensure loading works
-        self.iris_model.load_model('tests/test_iris_model.pkl')
+        self.iris_model.load_model('tests/models/test_iris_model.pkl')
         self.assertIsNotNone(self.iris_model.model)
 
         # Test prediction after loading to ensure model was saved and loaded correctly

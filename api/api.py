@@ -1,13 +1,11 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from IrisModel import IrisModel, IrisFeatures
-import numpy as np
+from src.IrisModel import IrisModel, IrisFeatures
 import pickle
 import uvicorn
 
 app = FastAPI()
 
-# Tentar carregar modelo
+# Ler modelo treinado
 try:
     with open('models/iris_model.pkl', 'rb') as model_file:        
         model = IrisModel(pickle.load(model_file))
