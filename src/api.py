@@ -1,9 +1,9 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import APIRouter, HTTPException
 from src.IrisModel import IrisModel, IrisFeatures
 import pickle
 import uvicorn
 
-app = FastAPI()
+router = APIRouter(prefix="/predict")
 
 # Ler modelo treinado
 try:
@@ -12,7 +12,7 @@ try:
 except FileNotFoundError:
     raise HTTPException(status_code=500, detail="Model file not found")
 
-@app.post("/predict/")
+@router.post("/")
 def predict_iris(features: IrisFeatures):
     print(features)
     try:        
