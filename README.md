@@ -5,17 +5,17 @@ Projeto para análise e classificação do dataset Iris utilizando Python e mach
 
 ## Estrutura de Diretórios
 - `src/`: Código-fonte para o projeto.
-- `api/`: API FastAPI que serve o modelo.
-- `model/`: Scripts para treinamento e o modelo treinado.
-- `Dockerfile`: Para criar um ambiente Docker reproduzível.
+- `models/`: Modelo treinado.
+- `Dockerfile`: Para criar um ambiente Docker.
 - `requirements.txt`: Lista de dependências do projeto.
+- `main.py`: API FastAPI que serve o modelo.
 
 ## Como Usar
 
 ### Usando python no terminal
 1. Clone o repositório.
 2. Instale as dependências `pip install -r requirements.txt`
-3. Execute o código da API `python src/main.py`.
+3. Execute o código da API `python main.py`.
 4. Acesse a API em `http://localhost:8000`.
 
 ### Usando docker

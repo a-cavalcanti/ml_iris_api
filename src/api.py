@@ -1,20 +1,18 @@
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from IrisModel import IrisModel, IrisFeatures
-import numpy as np
+from fastapi import APIRouter, HTTPException
+from src.IrisModel import IrisModel, IrisFeatures
 import pickle
 import uvicorn
 
-app = FastAPI()
+router = APIRouter(prefix="/predict")
 
-# Tentar carregar modelo
+# Ler modelo treinado
 try:
     with open('models/iris_model.pkl', 'rb') as model_file:        
         model = IrisModel(pickle.load(model_file))
 except FileNotFoundError:
     raise HTTPException(status_code=500, detail="Model file not found")
 
-@app.post("/predict/")
+@router.post("/")
 def predict_iris(features: IrisFeatures):
     print(features)
     try:        
