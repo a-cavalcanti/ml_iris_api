@@ -1,7 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from src.IrisModel import IrisModel, IrisFeatures
 import pickle
-import uvicorn
 
 router = APIRouter(prefix="/predict")
 
@@ -23,6 +22,3 @@ def predict_iris(features: IrisFeatures):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
-if __name__ == "__main__":    
-    uvicorn.run(app, host="0.0.0.0", port=8000)
